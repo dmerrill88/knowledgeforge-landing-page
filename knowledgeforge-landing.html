@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KnowledgeForge - Enterprise AI training platform that extracts institutional knowledge from email communications to improve chatbot accuracy by 103%.">
+    <title>KnowledgeForge | Enterprise AI Training Platform</title>
+    
+    <style>
+        /* Import Inter font from Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background-color: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        /* Professional Color Palette */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border: #e5e7eb;
+            --bg-subtle: #f9fafb;
+            --success: #059669;
+            --accent: #2563eb;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+        
+        h1 {
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: 36px;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        p {
+            color: var(--text-secondary);
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        
+        /* Section Spacing */
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .header-cta {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+        
+        .header-cta:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .hero-title {
+            max-width: 900px;
+            margin: 0 auto 24px;
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-subtitle {
+            max-width: 700px;
+            margin: 0 auto 48px;
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Metric Cards */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 60px 0;
+        }
+        
+        .metric-card {
+            background: var(--bg-subtle);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .metric-label {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        
+        .metric-change {
+            font-size: 14px;
+            color: var(--success);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        
+        /* Comparison Chart */
+        .comparison-section {
+            background: var(--bg-subtle);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .section-title {
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+        
+        .comparison-chart {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 48px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        
+        .chart-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        
+        .chart-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .chart-label {
+            width: 200px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .chart-bar-container {
+            flex: 1;
+            background: var(--bg-subtle);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            height: 48px;
+        }
+        
+        .chart-bar {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+            transition: width 0.6s ease;
+        }
+        
+        .bar-baseline {
+            background: linear-gradient(90deg, #64748b 0%, #475569 100%);
+            width: 45%;
+        }
+        
+        .bar-knowledgeforge {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            width: 91%;
+        }
+        
+        /* Data Table */
+        .data-section {
+            background: white;
+        }
+        
+        .data-table-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table thead {
+            background: var(--bg-subtle);
+        }
+        
+        .data-table th {
+            padding: 16px 24px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .data-table td {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+            font-size: 15px;
+        }
+        
+        .data-table td:first-child {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .data-table td:nth-child(2) {
+            color: var(--text-secondary);
+        }
+        
+        .data-table td:nth-child(3) {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .data-table td:nth-child(4) {
+            font-weight: 600;
+            color: var(--success);
+        }
+        
+        /* Process Timeline */
+        .process-section {
+            background: white;
+        }
+        
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline-step {
+            position: relative;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .step-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* ROI Section */
+        .roi-section {
+            background: var(--bg-subtle);
+        }
+        
+        .roi-calculator {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 48px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        
+        .roi-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .roi-row:last-child {
+            border-bottom: none;
+            padding-top: 24px;
+            margin-top: 8px;
+        }
+        
+        .roi-label {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+        
+        .roi-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .roi-value-large {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--success);
+        }
+        
+        .roi-subtext {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+        
+        /* Feature Grid */
+        .features-section {
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .feature-card {
+            padding: 32px;
+            background: var(--bg-subtle);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        
+        .feature-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-info {
+            margin-top: 32px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-subtle);
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .footer-disclaimer {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            max-width: 800px;
+            margin: 24px auto 0;
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1, .hero-title {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .metrics-grid,
+            .timeline-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 48px 0;
+            }
+            
+            .comparison-chart,
+            .roi-calculator {
+                padding: 32px 24px;
+            }
+            
+            .chart-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .chart-label {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+            
+            .chart-bar-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">KnowledgeForge</div>
+                <a href="#contact" class="header-cta">Request Demo</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Train Your AI on Institutional Knowledge, Not Generic Content</h1>
+            <p class="hero-subtitle">
+                KnowledgeForge extracts verified question-answer pairs and key insights from your organization's email communications, 
+                transforming institutional knowledge into high-quality AI training data.
+            </p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">91%</div>
+                    <div class="metric-label">Chatbot Accuracy</div>
+                    <div class="metric-change">+103% vs generic training</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$828K</div>
+                    <div class="metric-label">Annual Savings</div>
+                    <div class="metric-change">Per 10,000 queries/month</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1 Week</div>
+                    <div class="metric-label">Implementation</div>
+                    <div class="metric-change">vs 9-18 months custom dev</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Accuracy Gap</h2>
+                <p class="section-subtitle">Independent simulation results across 1,000 enterprise queries</p>
+            </div>
+            
+            <div class="comparison-chart">
+                <div class="chart-row">
+                    <div class="chart-label">Generic Chatbot</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar bar-baseline">45%</div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-label">KnowledgeForge</div>
+                    <div class="chart-bar-container">
+                        <div class="chart-bar bar-knowledgeforge">91%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Section -->
+    <section class="data-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Performance by Query Type</h2>
+                <p class="section-subtitle">Monte Carlo simulation with industry-standard benchmarks</p>
+            </div>
+            
+            <div class="data-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Query Category</th>
+                            <th>Baseline</th>
+                            <th>KnowledgeForge</th>
+                            <th>Improvement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Overall Accuracy</td>
+                            <td>45%</td>
+                            <td>91%</td>
+                            <td>+103%</td>
+                        </tr>
+                        <tr>
+                            <td>Complex Queries</td>
+                            <td>36%</td>
+                            <td>92%</td>
+                            <td>+155%</td>
+                        </tr>
+                        <tr>
+                            <td>Edge Cases</td>
+                            <td>26%</td>
+                            <td>78%</td>
+                            <td>+205%</td>
+                        </tr>
+                        <tr>
+                            <td>Policy Questions</td>
+                            <td>43%</td>
+                            <td>94%</td>
+                            <td>+118%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Implementation Process</h2>
+                <p class="section-subtitle">From integration to deployment in one week</p>
+            </div>
+            
+            <div class="timeline-grid">
+                <div class="timeline-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Connect</h3>
+                    <p class="step-description">
+                        Integrate with Gmail or Microsoft Outlook. AI analyzes communication patterns, decision-making workflows, 
+                        and knowledge exchanges across your organization. PII automatically redacted.
+                    </p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Extract</h3>
+                    <p class="step-description">
+                        AI identifies question-answer pairs, edge case resolutions, policy interpretations, and expert reasoning patterns. 
+                        Multi-reviewer validation with confidence scoring and contradiction detection.
+                    </p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Refine</h3>
+                    <p class="step-description">
+                        Team reviews extractions with context-aware suggestions. Semantic deduplication eliminates conflicts. 
+                        Authority weighting and relationship mapping prioritize institutional expertise.
+                    </p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Deploy</h3>
+                    <p class="step-description">
+                        Export in any format (JSON, JSONL, CSV). Deploy for chatbot training, RAG systems, customer service automation, 
+                        internal knowledge bases, sales enablement tools, or LLM fine-tuning. Measure accuracy improvements across use cases.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Return on Investment Analysis</h2>
+                <p class="section-subtitle">Financial impact for 10,000 queries per month</p>
+            </div>
+            
+            <div class="roi-calculator">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 24px; color: var(--text-primary);">Current State (Generic Chatbot)</h3>
+                <div class="roi-row" style="border-bottom: none; padding: 12px 0;">
+                    <div class="roi-label">Chatbot resolves:</div>
+                    <div class="roi-value" style="font-size: 18px;">4,500 queries (45%)</div>
+                </div>
+                <div class="roi-row" style="border-bottom: none; padding: 12px 0;">
+                    <div class="roi-label">Agent escalations:</div>
+                    <div class="roi-value" style="font-size: 18px;">5,500 queries</div>
+                </div>
+                <div class="roi-row" style="border-bottom: none; padding: 12px 0;">
+                    <div class="roi-label">Cost @ $15/escalation:</div>
+                    <div class="roi-value" style="font-size: 18px;">$82,500/month</div>
+                </div>
+                <div class="roi-row" style="padding-top: 16px; margin-top: 16px;">
+                    <div class="roi-label" style="font-weight: 600;">Annual Cost:</div>
+                    <div class="roi-value" style="color: #dc2626;">$990,000</div>
+                </div>
+                
+                <div style="height: 2px; background: var(--border); margin: 32px 0;"></div>
+                
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 24px; color: var(--text-primary);">With KnowledgeForge</h3>
+                <div class="roi-row" style="border-bottom: none; padding: 12px 0;">
+                    <div class="roi-label">Chatbot resolves:</div>
+                    <div class="roi-value" style="font-size: 18px;">9,100 queries (91%)</div>
+                </div>
+                <div class="roi-row" style="border-bottom: none; padding: 12px 0;">
+                    <div class="roi-label">Agent escalations:</div>
+                    <div class="roi-value" style="font-size: 18px;">900 queries</div>
+                </div>
+                <div class="roi-row" style="border-bottom: none; padding: 12px 0;">
+                    <div class="roi-label">Cost @ $15/escalation:</div>
+                    <div class="roi-value" style="font-size: 18px;">$13,500/month</div>
+                </div>
+                <div class="roi-row" style="padding-top: 16px; margin-top: 16px;">
+                    <div class="roi-label" style="font-weight: 600;">Annual Cost:</div>
+                    <div class="roi-value" style="color: var(--success);">$162,000</div>
+                </div>
+                
+                <div style="height: 2px; background: var(--border); margin: 32px 0;"></div>
+                
+                <div class="roi-row" style="background: var(--bg-subtle); padding: 24px; border-radius: 8px; border-bottom: none;">
+                    <div>
+                        <div class="roi-label" style="font-size: 16px; font-weight: 600; color: var(--text-primary);">Annual Savings</div>
+                        <div class="roi-subtext" style="margin-top: 12px;">
+                            Investment: $83K-$134K/year<br>
+                            Net Benefit: $694K-$745K<br>
+                            ROI: 525-900%<br>
+                            Payback Period: 5-8 weeks
+                        </div>
+                    </div>
+                    <div class="roi-value-large">$828K</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ChatGPT Comparison Section -->
+    <section style="background: var(--bg-subtle); padding: 80px 0;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 32px; font-weight: 600; color: var(--text-primary); margin-bottom: 24px;">
+                    Why Not Just Use ChatGPT?
+                </h2>
+                
+                <div style="background: white; padding: 40px; border-radius: 12px; border: 1px solid var(--border);">
+                    <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 32px; line-height: 1.7;">
+                        ChatGPT is trained on the public internet. It lacks access to your company's specific knowledge:
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
+                        <div>
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                                ChatGPT Doesn't Know
+                            </h3>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; color: var(--text-secondary); line-height: 1.8;">
+                                <li style="padding-left: 20px; position: relative; margin-bottom: 8px;">
+                                    <span style="position: absolute; left: 0;">—</span>
+                                    Your specific policies and exceptions
+                                </li>
+                                <li style="padding-left: 20px; position: relative; margin-bottom: 8px;">
+                                    <span style="position: absolute; left: 0;">—</span>
+                                    Your product details and pricing
+                                </li>
+                                <li style="padding-left: 20px; position: relative; margin-bottom: 8px;">
+                                    <span style="position: absolute; left: 0;">—</span>
+                                    Your internal processes
+                                </li>
+                                <li style="padding-left: 20px; position: relative;">
+                                    <span style="position: absolute; left: 0;">—</span>
+                                    How your experts handle your customers
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                                KnowledgeForge Provides
+                            </h3>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; color: var(--text-secondary); line-height: 1.8;">
+                                <li style="padding-left: 20px; position: relative; margin-bottom: 8px;">
+                                    <span style="position: absolute; left: 0; color: var(--success); font-weight: 600;">✓</span>
+                                    Verified company-specific knowledge
+                                </li>
+                                <li style="padding-left: 20px; position: relative; margin-bottom: 8px;">
+                                    <span style="position: absolute; left: 0; color: var(--success); font-weight: 600;">✓</span>
+                                    Real expert answers from your team
+                                </li>
+                                <li style="padding-left: 20px; position: relative; margin-bottom: 8px;">
+                                    <span style="position: absolute; left: 0; color: var(--success); font-weight: 600;">✓</span>
+                                    Actual edge case handling
+                                </li>
+                                <li style="padding-left: 20px; position: relative;">
+                                    <span style="position: absolute; left: 0; color: var(--success); font-weight: 600;">✓</span>
+                                    Institutional decision-making patterns
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--bg-subtle); padding: 24px; border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <p style="font-size: 16px; color: var(--text-primary); font-weight: 500; line-height: 1.7;">
+                            The difference: asking a random person on the street vs. asking your most experienced employee. 
+                            Which would you rather have answering your customers?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Enterprise-Grade Platform</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Intellectual Property</h3>
+                    <p class="feature-description">
+                        Proprietary technology for mining institutional knowledge from email communications. No direct competitors identified. 1-week implementation.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Compliance-Ready</h3>
+                    <p class="feature-description">
+                        Automatic PII redaction. GDPR/CCPA compliant. Multi-reviewer approval workflows. Version control and audit trails.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Platform Agnostic</h3>
+                    <p class="feature-description">
+                        Export data compatible with any chatbot platform, RAG system, or LLM fine-tuning process. JSON, JSONL, CSV formats.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Program Section -->
+    <section class="pilot-section" style="background: white; padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Risk-Free Pilot Program</h2>
+                <p class="section-subtitle">Validate the platform with a 3-month pilot engagement</p>
+            </div>
+            
+            <div style="max-width: 700px; margin: 0 auto; background: var(--bg-subtle); padding: 48px; border-radius: 12px; border: 1px solid var(--border);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px;">
+                    <div>
+                        <h3 style="font-size: 16px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px;">Investment</h3>
+                        <p style="font-size: 28px; font-weight: 700; color: var(--text-primary);">$15,000</p>
+                        <p style="font-size: 14px; color: var(--text-secondary); margin-top: 4px;">setup fee</p>
+                        <p style="font-size: 20px; font-weight: 600; color: var(--text-primary); margin-top: 8px;">+ $2,500/mo</p>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 16px; font-weight: 600; color: var(--text-secondary); margin-bottom: 16px;">What You Get</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-primary);">
+                            <li style="padding-left: 20px; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--success); font-weight: 600;">✓</span>
+                                Full platform access
+                            </li>
+                            <li style="padding-left: 20px; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--success); font-weight: 600;">✓</span>
+                                Up to 10,000+ query training dataset
+                            </li>
+                            <li style="padding-left: 20px; position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--success); font-weight: 600;">✓</span>
+                                Comprehensive ROI analysis (Month 3)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 24px; border-radius: 8px; border: 2px solid var(--primary);">
+                    <h4 style="font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 12px;">Performance Guarantee</h4>
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6;">
+                        If we don't demonstrate at least 5x ROI by month 3, we'll refund your subscription fees. 
+                        You only pay the setup fee for the value already delivered.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background: var(--bg-subtle); padding: 80px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+                    <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                            What if our data is sensitive?
+                        </h3>
+                        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7;">
+                            All personal information is automatically removed before processing. Your data never leaves your company's control. 
+                            Your team reviews and approves everything before it's finalized, and you can track every change with full audit logs.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                            What email providers do you support?
+                        </h3>
+                        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7;">
+                            Gmail (Google Workspace) and Microsoft Outlook (Microsoft 365), which covers 95% of businesses. 
+                            The connection is secure and read-only—we can only view your sent emails, not modify or delete anything.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                            How long does implementation take?
+                        </h3>
+                        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7;">
+                            One week from start to finish. We connect to your email, extract the knowledge, your team reviews it, 
+                            and you receive your training data. Most custom AI projects take 9-18 months.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 32px;">
+                        <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">
+                            Can we use this with our existing chatbot?
+                        </h3>
+                        <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7;">
+                            Yes. KnowledgeForge works with any AI chatbot or customer service platform. 
+                            We export your training data in standard formats (JSON, CSV, or custom) that work with any system.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Cost Calculation Section -->
+    <section style="background: white; padding: 80px 0;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 36px; font-weight: 600; color: var(--text-primary); margin-bottom: 16px;">
+                    Still on the fence?
+                </h2>
+                <p style="font-size: 20px; color: var(--text-secondary); margin-bottom: 48px;">
+                    Do this 60-second exercise
+                </p>
+                
+                <div style="background: var(--bg-subtle); padding: 48px; border-radius: 12px; border: 1px solid var(--border); text-align: left; margin-bottom: 32px;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 24px;">
+                        Calculate Your Annual Cost
+                    </h3>
+                    <div style="font-size: 17px; color: var(--text-secondary); line-height: 2.2;">
+                        <p style="margin-bottom: 12px;">1. Monthly customer queries: ___________</p>
+                        <p style="margin-bottom: 12px;">2. × 12 (annual queries): ___________</p>
+                        <p style="margin-bottom: 12px;">3. × 0.46 (queries your chatbot is failing): ___________</p>
+                        <p style="margin-bottom: 0;">4. × $15 (cost per escalation): <strong style="color: var(--text-primary);">$___________</strong></p>
+                    </div>
+                </div>
+                
+                <p style="font-size: 19px; color: var(--text-primary); font-weight: 500; line-height: 1.7; max-width: 600px; margin: 0 auto;">
+                    That's your annual cost of inaccurate AI. Is a 30-minute conversation worth exploring how to recover it?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Schedule Your ROI Analysis</h2>
+            <p class="subtitle">
+                30-minute technical consultation with personalized financial modeling
+            </p>
+            
+            <div style="max-width: 700px; margin: 40px auto; background: white; padding: 40px; border-radius: 12px; color: var(--text-primary);">
+                <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 24px; color: var(--text-primary);">
+                    What You'll Receive
+                </h3>
+                <ul style="list-style: none; padding: 0; font-size: 16px; line-height: 2;">
+                    <li style="padding-left: 24px; position: relative; margin-bottom: 12px;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: 600;">✓</span>
+                        Live analysis of your email data (anonymized)
+                    </li>
+                    <li style="padding-left: 24px; position: relative; margin-bottom: 12px;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: 600;">✓</span>
+                        Sample extractions from your domain
+                    </li>
+                    <li style="padding-left: 24px; position: relative; margin-bottom: 12px;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: 600;">✓</span>
+                        Custom ROI calculator for your query volume
+                    </li>
+                    <li style="padding-left: 24px; position: relative; margin-bottom: 12px;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: 600;">✓</span>
+                        Implementation timeline for your team
+                    </li>
+                    <li style="padding-left: 24px; position: relative; margin-bottom: 12px;">
+                        <span style="position: absolute; left: 0; color: var(--primary); font-weight: 600;">✓</span>
+                        Accuracy projections based on your use case
+                    </li>
+                </ul>
+                
+                <div style="background: var(--bg-subtle); padding: 20px; border-radius: 8px; margin-top: 24px; border-left: 4px solid var(--primary);">
+                    <p style="font-size: 15px; font-weight: 500;">
+                        Bonus: Complimentary accuracy audit of your current chatbot ($5,000 value)
+                    </p>
+                </div>
+            </div>
+            
+            <a href="https://calendly.com/YOUR-LINK-HERE" class="btn-primary" target="_blank">Request Demo</a>
+            
+            <div class="contact-info">
+                <p><a href="mailto:sales@knowledgeforge.ai">sales@knowledgeforge.ai</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text"><strong>KnowledgeForge</strong> | Proprietary AI Training Platform</p>
+                <p class="footer-disclaimer">
+                    Simulation data based on independent testing using Monte Carlo methodology with industry-standard accuracy benchmarks. 
+                    Individual results may vary based on data quality, volume, and implementation. 
+                    ROI calculations assume $15 per agent escalation; actual costs vary by industry and geography.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
